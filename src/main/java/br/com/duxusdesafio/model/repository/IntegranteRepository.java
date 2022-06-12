@@ -14,6 +14,7 @@ import br.com.duxusdesafio.model.Integrante;
 public interface IntegranteRepository extends JpaRepository<Integrante, Long> {
 
 	Optional<Integrante> findByNome(String nome);
+	Optional<Integrante> findBydata(LocalDate date);
 	/* @Query("select g.nome, c.data from integrante g join composicao_time a"
 	+"on g.id=a.integrante_id"
 	+"join time c "

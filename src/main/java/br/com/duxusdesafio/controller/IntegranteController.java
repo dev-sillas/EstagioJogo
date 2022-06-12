@@ -1,12 +1,9 @@
 package br.com.duxusdesafio.controller;
-
 import java.net.URI;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,11 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import br.com.duxusdesafio.model.Integrante;
 import br.com.duxusdesafio.model.repository.IntegranteRepository;
-
-
 
 @RestController
 @RequestMapping("/api/integrante")
@@ -82,7 +76,10 @@ public class IntegranteController {
 	}
 
 
-	@GetMapping("/data/2020-01-20")
+    /**
+     * Vai retornar uma lista com os nomes dos integrantes do time daquela data
+     */
+	@GetMapping("/data/{date}")
 	public ResponseEntity<Integrante> getBydata(@PathVariable LocalDate date) {
 
 		Optional<Integrante> integrante = integranteRepository.findBydata(date);
